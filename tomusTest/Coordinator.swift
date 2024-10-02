@@ -14,8 +14,8 @@ class Coordinator {
     var navigationController: UINavigationController?
     
     func showCharacterDetails(character: Character) {
-        let descriptionVC = CharacterDescriptionViewController()
-        descriptionVC.configure(with: character)
+        let characterViewModel = CharacterDescriptionViewModel(character: character)
+        let descriptionVC = CharacterDescriptionViewController(viewModel: characterViewModel)
         navigationController?.pushViewController(descriptionVC, animated: true)
     }
 }

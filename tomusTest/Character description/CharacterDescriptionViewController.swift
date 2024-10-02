@@ -10,6 +10,15 @@ import UIKit
 final class CharacterDescriptionViewController: UIViewController {
     private var viewModel: CharacterDescriptionViewModel?
     
+    init(viewModel: CharacterDescriptionViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     private let characterImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -95,16 +104,6 @@ final class CharacterDescriptionViewController: UIViewController {
         if let url = viewModel?.characterImageUrl {
             characterImageView.kf.setImage(with: url)
         }
-    }
-    
-    func configure(with character: Character) {
-        self.viewModel = CharacterDescriptionViewModel(character: character)
-    }
-}
-
-extension CharacterDescriptionViewController: CharacterSelectionDelegate {
-    func didSelectCharacter(_ character: Character) {
-        configure(with: character)
     }
 }
 
