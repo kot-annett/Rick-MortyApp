@@ -66,8 +66,8 @@ final class CharacterCellViewController: UITableViewCell {
     }
     
     func configure(with character: Character) {
-        nameLabel.text = "Gender: \(character.name)"
-        genderLabel.text = "Status: \(character.gender)"
+        nameLabel.text = "Name: \(character.name)"
+        genderLabel.text = "Gender: \(character.gender)"
         
         if let imageUrl = URL(string: character.image) {
             characterImageView.kf.setImage(with: imageUrl)
