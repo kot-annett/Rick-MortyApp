@@ -8,8 +8,7 @@
 import UIKit
 
 final class CharacterDescriptionViewController: UIViewController {
-    private let character = MockCharacters
-    weak var delegate: CharacterSelectionDelegate?
+    private var viewModel: CharacterDescriptionViewModel?
     
     private let characterImageView: UIImageView = {
         let imageView = UIImageView()
@@ -50,6 +49,7 @@ final class CharacterDescriptionViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         setupNavigationBar()
+        configureUI()
     }
     
     private func setupUI() {
@@ -86,15 +86,19 @@ final class CharacterDescriptionViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .systemBlue
     }
     
-    func configure(with character: Character) {
-        nameLabel.text = "Name: \(character.name)"
-        statusLabel.text = "Status: \(character.status)"
-        speciesLabel.text = "Species: \(character.species)"
-        genderLabel.text = "Gender: \(character.gender)"
+    private func configureUI() {
+        nameLabel.text = viewModel?.characterName
+        statusLabel.text = viewModel?.characterStatus
+        speciesLabel.text = viewModel?.characterSpecies
+        genderLabel.text = viewModel?.characterGender
         
-        if let imageUrl = URL(string: character.image) {
-            characterImageView.kf.setImage(with: imageUrl)
+        if let url = viewModel?.characterImageUrl {
+            characterImageView.kf.setImage(with: url)
         }
+    }
+    
+    func configure(with character: Character) {
+        self.viewModel = CharacterDescriptionViewModel(character: character)
     }
 }
 

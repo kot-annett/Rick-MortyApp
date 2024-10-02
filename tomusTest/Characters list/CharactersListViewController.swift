@@ -8,8 +8,7 @@
 import UIKit
 
 final class CharactersListViewController: UIViewController {
-//    private let characters = [Character]()
-    private let characters = MockCharacters
+    private let viewModel = CharactersListViewModel()
     
     private let tableView: UITableView = {
         let table = UITableView()
@@ -27,6 +26,12 @@ final class CharactersListViewController: UIViewController {
         tableView.delegate = self
         setupTableView()
         setupNavigationBar()
+        
+        viewModel.didUpdateCharacters = { [weak self] in
+            self?.tableView.reloadData()
+        }
+        
+        viewModel.loadCharacters()
     }
     
     private func setupTableView() {
@@ -52,7 +57,7 @@ final class CharactersListViewController: UIViewController {
 
 extension CharactersListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return characters.count
+       return viewModel.numberOfCharacters()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -63,7 +68,7 @@ extension CharactersListViewController: UITableViewDataSource, UITableViewDelega
             return UITableViewCell()
         }
         
-        let character = characters[indexPath.row]
+        let character = viewModel.getCharacter(at: indexPath.row)
         cell.configure(with: character)
         return cell
     }
@@ -73,15 +78,17 @@ extension CharactersListViewController: UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedCharacter = characters[indexPath.row]
-        didSelectCharacter(selectedCharacter)
+        let selectedCharacter = viewModel.getCharacter(at: indexPath.row)
+        Coordinator.shared.showCharacterDetails(character: selectedCharacter)
     }
-}
-
-extension CharactersListViewController: CharacterSelectionDelegate {
-    func didSelectCharacter(_ character: Character) {
-        let descriptionVC = CharacterDescriptionViewController()
-        descriptionVC.configure(with: character)
-        navigationController?.pushViewController(descriptionVC, animated: true)
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let position = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let screenHeight = scrollView.frame.size.height
+        
+        if position > contentHeight - screenHeight * 1.5 {
+            viewModel.loadCharacters()
+        }
     }
 }

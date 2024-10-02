@@ -7,7 +7,19 @@
 
 import Foundation
 
-struct Character {
+struct CharacterResponse: Codable {
+    let info: Info
+    let results: [Character]
+}
+
+struct Info: Codable {
+    let count: Int
+    let pages: Int
+    let next: String?
+    let prev: String?
+}
+
+struct Character: Codable {
     let id: Int
     let name: String
     let status: String
@@ -20,12 +32,12 @@ struct Character {
     let created: String
 }
 
-struct Origin {
+struct Origin: Codable {
     let name: String
     let url: String
 }
 
-struct Location {
+struct Location: Codable {
     let name: String
     let url: String
 }

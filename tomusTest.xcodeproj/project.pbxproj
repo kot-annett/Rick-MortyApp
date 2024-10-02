@@ -19,6 +19,9 @@
 		952CF1B62CAD43D6003A2794 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 952CF1B52CAD43D6003A2794 /* Kingfisher */; };
 		952CF1B82CAD4F74003A2794 /* CharacterDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952CF1B72CAD4F74003A2794 /* CharacterDescriptionViewController.swift */; };
 		952CF1BD2CAD86D6003A2794 /* CharacterSelectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952CF1BC2CAD86D5003A2794 /* CharacterSelectionDelegate.swift */; };
+		952CF1BF2CAD90FC003A2794 /* CharactersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952CF1BE2CAD90FC003A2794 /* CharactersListViewModel.swift */; };
+		952CF1C12CAD91FB003A2794 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952CF1C02CAD91FB003A2794 /* Coordinator.swift */; };
+		952CF1C32CAD94CE003A2794 /* CharacterDescriptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952CF1C22CAD94CE003A2794 /* CharacterDescriptionViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +38,9 @@
 		952CF1B22CAD4288003A2794 /* CharacterCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCellViewController.swift; sourceTree = "<group>"; };
 		952CF1B72CAD4F74003A2794 /* CharacterDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDescriptionViewController.swift; sourceTree = "<group>"; };
 		952CF1BC2CAD86D5003A2794 /* CharacterSelectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSelectionDelegate.swift; sourceTree = "<group>"; };
+		952CF1BE2CAD90FC003A2794 /* CharactersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListViewModel.swift; sourceTree = "<group>"; };
+		952CF1C02CAD91FB003A2794 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		952CF1C22CAD94CE003A2794 /* CharacterDescriptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDescriptionViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +76,7 @@
 			children = (
 				952CF1982CAC3DA2003A2794 /* AppDelegate.swift */,
 				952CF19A2CAC3DA2003A2794 /* SceneDelegate.swift */,
+				952CF1C02CAD91FB003A2794 /* Coordinator.swift */,
 				952CF1BA2CAD643E003A2794 /* Models */,
 				952CF1B92CAD641C003A2794 /* Characters list */,
 				952CF1BB2CAD6454003A2794 /* Character description */,
@@ -87,6 +94,7 @@
 				952CF1B02CAD40AC003A2794 /* CharactersListViewController.swift */,
 				952CF1B22CAD4288003A2794 /* CharacterCellViewController.swift */,
 				952CF1BC2CAD86D5003A2794 /* CharacterSelectionDelegate.swift */,
+				952CF1BE2CAD90FC003A2794 /* CharactersListViewModel.swift */,
 			);
 			path = "Characters list";
 			sourceTree = "<group>";
@@ -104,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				952CF1B72CAD4F74003A2794 /* CharacterDescriptionViewController.swift */,
+				952CF1C22CAD94CE003A2794 /* CharacterDescriptionViewModel.swift */,
 			);
 			path = "Character description";
 			sourceTree = "<group>";
@@ -185,10 +194,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				952CF1BF2CAD90FC003A2794 /* CharactersListViewModel.swift in Sources */,
 				952CF1B12CAD40AC003A2794 /* CharactersListViewController.swift in Sources */,
+				952CF1C12CAD91FB003A2794 /* Coordinator.swift in Sources */,
 				952CF1B32CAD4288003A2794 /* CharacterCellViewController.swift in Sources */,
 				952CF1BD2CAD86D6003A2794 /* CharacterSelectionDelegate.swift in Sources */,
 				952CF1992CAC3DA2003A2794 /* AppDelegate.swift in Sources */,
+				952CF1C32CAD94CE003A2794 /* CharacterDescriptionViewModel.swift in Sources */,
 				952CF19B2CAC3DA2003A2794 /* SceneDelegate.swift in Sources */,
 				952CF1B82CAD4F74003A2794 /* CharacterDescriptionViewController.swift in Sources */,
 				952CF1AD2CAD3C47003A2794 /* Character.swift in Sources */,
